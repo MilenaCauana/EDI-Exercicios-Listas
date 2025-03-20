@@ -16,6 +16,11 @@ typedef struct
     int qtdElemento;
 } Lista;
 
+void inicializa(Lista *lista)
+{
+    lista->qtdElemento = 0;
+}
+
 //Para inserir um elemento, iremos fazer uma função
 void inserir_elemento(int elemento, Lista *lista)
 {
@@ -112,7 +117,7 @@ int main ()
     int elemento, qtdElementoFornecido;
     Lista lista;
 
-    lista.qtdElemento = 0;//Aqui, estou inicializando minha lista com zero
+    inicializa(&lista);//Aqui, estou inicializando minha lista com zero
 
     //Recebendo os elementos do usuário
     printf("Quantos elementos: \n");
