@@ -86,6 +86,27 @@ void removendo_elemento(int elemento, Lista *lista)
     lista->qtdElemento--;
 }
 
+//Agora, implementaremos uma função para imprimir a lista de forma recursiva
+void imprimir_listas(int i, Lista *lista)
+{
+    //Primeiro, verificaremos se a lista esta vazia, depois, verificaremos se o elemento que está sendo impresso é o último, se for, iremos retornar para o main, se não for nenhuma das opções, iremos utilizar a recursividade;
+    if (lista->qtdElemento == 0)
+    {
+        printf("Lista vazia!!\n");
+        return;
+
+    } else if (i == lista->qtdElemento - 1)
+    {
+        printf("%d\n", lista->minha_lista[i]);
+        return;
+    }
+    else
+    {
+        printf("%d\n", lista->minha_lista[i]);
+        imprimir_listas(i + 1, lista);
+    }
+}
+
 int main ()
 {
     int elemento, qtdElementoFornecido;
@@ -106,10 +127,7 @@ int main ()
 
     //Imprimindo a lista Inicializada
     printf("\n\nLista:\n");
-    for (int i = 0; i < lista.qtdElemento; i++)
-    {
-        printf("\n%d", lista.minha_lista[i]);
-    }
+    imprimir_listas(0, &lista);
 
     //Removendo um elemento
     printf("\n\nRemovendo Elemento: \n");
@@ -120,10 +138,7 @@ int main ()
 
     //Imprimindo a lista Sem o elemento
     printf("\n\nLista Removida:\n");
-    for (int i = 0; i < lista.qtdElemento; i++)
-    {
-        printf("\n%d", lista.minha_lista[i]);
-    }
+    imprimir_listas(0, &lista);
 
 return 0;
 }
